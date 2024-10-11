@@ -1,0 +1,159 @@
+Complete Git Notes
+________________________________________
+1. Introduction to Git
+•	What is Git?
+o	A distributed version control system for tracking changes in files and coordinating work among multiple people.
+•	Key Benefits:
+o	Track changes, revert to previous stages, and collaborate easily.
+________________________________________
+2. Setting Up Git
+•	Install Git:
+o	Windows: Download from git-scm.com.
+o	macOS: Install via Homebrew (brew install git) or download.
+o	Linux: Use your package manager (e.g., sudo apt install git).
+•	Initial Configuration:
+bash
+Copy code
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global core.editor "code --wait" # Optional: Set default editor (e.g., VS Code)
+•	Check Configuration:
+bash
+Copy code
+git config --list
+________________________________________
+3. Creating and Cloning Repositories
+•	Create a New Repository:
+bash
+Copy code
+mkdir my-repo
+cd my-repo
+git init
+•	Clone an Existing Repository:
+bash
+Copy code
+git clone https://github.com/username/repo.git
+________________________________________
+4. Basic Commands
+•	Checking Status:
+bash
+Copy code
+git status
+•	Viewing Changes:
+bash
+Copy code
+git diff               # Show unstaged changes
+git diff --cached      # Show staged changes
+•	Adding Changes:
+bash
+Copy code
+git add filename.txt   # Add a specific file
+git add .              # Add all changes
+•	Committing Changes:
+bash
+Copy code
+git commit -m "Your commit message here"
+•	Viewing Commit History:
+bash
+Copy code
+git log
+git log --oneline      # Simplified view
+git log --graph        # Graphical representation of commits
+________________________________________
+5. Branching and Merging
+•	Creating a Branch:
+bash
+Copy code
+git branch new-branch-name
+•	Switching Branches:
+bash
+Copy code
+git checkout new-branch-name
+•	Creating and Switching in One Command:
+bash
+Copy code
+git checkout -b new-branch-name
+•	Merging Branches:
+bash
+Copy code
+git checkout main               # Switch to the main branch
+git merge new-branch-name       # Merge changes from the specified branch
+•	Resolving Merge Conflicts:
+o	Open the conflicting files, make the necessary edits, then:
+bash
+Copy code
+git add resolved-file.txt
+git commit -m "Resolved merge conflict"
+________________________________________
+6. Remote Repositories
+•	Adding a Remote:
+bash
+Copy code
+git remote add origin https://github.com/username/repo.git
+•	Pushing Changes to Remote:
+bash
+Copy code
+git push origin main          # Push to the main branch
+git push origin new-branch    # Push a specific branch
+•	Pulling Changes from Remote:
+bash
+Copy code
+git pull origin main          # Fetch and merge changes from the remote main branch
+•	Viewing Remote Repositories:
+bash
+Copy code
+git remote -v                 # List remotes with URLs
+•	Removing a Remote:
+bash
+Copy code
+git remote remove origin
+________________________________________
+7. Advanced Features
+•	Stashing Changes:
+o	Temporarily save changes that you don't want to commit yet.
+bash
+Copy code
+git stash                     # Stash changes
+git stash pop                 # Apply stashed changes
+git stash list                # List stashed changes
+•	Resetting Changes:
+bash
+Copy code
+git reset HEAD^               # Undo last commit (keep changes)
+git reset --hard HEAD^        # Undo last commit (discard changes)
+•	Reverting Changes:
+bash
+Copy code
+git revert <commit-id>        # Create a new commit that undoes changes from a specific commit
+•	Cherry-Picking Commits:
+bash
+Copy code
+git cherry-pick <commit-id>   # Apply a specific commit from another branch
+•	Rebasing:
+bash
+Copy code
+git checkout new-branch
+git rebase main               # Reapply commits on top of another base tip
+________________________________________
+8. Viewing Changes and History
+•	Show Specific Commit:
+bash
+Copy code
+git show <commit-id>
+•	Show Changes in a File:
+bash
+Copy code
+git log -p filename.txt       # View commit history for a specific file
+________________________________________
+9. Best Practices
+•	Commit Often: Small, frequent commits with clear messages.
+•	Use Branches: Isolate features or fixes to avoid conflicts.
+•	Write Clear Commit Messages: Use the imperative mood (e.g., "Add feature" instead of "Added feature").
+•	Review Changes Before Committing: Use git diff to review changes.
+________________________________________
+10. Resources for Learning More
+•	Official Git Documentation
+•	GitHub Learning Lab
+•	Atlassian Git Tutorials
+•	Codecademy Git Course
+
